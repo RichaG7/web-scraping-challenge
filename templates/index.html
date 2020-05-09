@@ -10,16 +10,99 @@
 </head>
 
 <body>
+  <!--page div-->
   <div class="container-fluid">
+    <!--jumbotron-->
     <div class="jumbotron text-center">
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
     </div>
-    <img src="{{ mars.sloth_img }}" alt="Sloth">
-    <h2>The typical weather in Costa Rica is:</h2>
-    <h3>Max Temp: {{ mars.max_temp }}</h3>
-    <h3>Min Temp: {{ mars.min_temp }}</h3>
-  </div>
+
+    <!--Latest Mars News-->
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Latest Mars News</h2>
+          <p>{{ mars.news_article }}</p>
+      </div>
+    </div>
+
+    <!--Mars image, weather and facts-->
+    <div class="row">
+      <!--Mars image-->
+      <div class="col-md-8">
+        <h1>Featured Mars Image</h1>
+          <img src="{{ mars.featured_image }}" alt="Featured Mars Image">
+      </div>
+
+      <!--Weather and facts-->
+      <div class="col-md-4">
+        <!--Weather-->
+        <div class="row">
+          <h2>Current Weather on Mars</h2>
+            <p>{{ mars.tweet }}</p>
+        </div>
+
+        <!--Facts-->
+        <div class="row">
+          <h2>Mars Facts</h2>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-5">
+            <img src="{{ mars.cerberus_image }}" alt="Cerberus Hemisphere Enhanced">
+            <h3>Cerberus Hemisphere Enhanced</h3>
+          </div>
+          <div class="col-md-5">
+            <img src="{{ mars.schiaparelli_image }}" alt="Schiaparelli Hemisphere Enhanced">
+            <h3>Schiaparelli Hemisphere Enhanced</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <img src="{{ mars.syrtismajor_image }}" alt="Syrtis Major Hemisphere Enhanced">
+            <h3>Syrtis Major Hemisphere Enhanced</h3>
+          </div>
+          <div class="col-md-5">
+            <img src="{{ mars.vallesmarineris_image }}" alt="Valles Marineris Hemisphere Enhanced">
+            <h3>Valles Marineris Hemisphere Enhanced</h3>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 
