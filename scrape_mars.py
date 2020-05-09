@@ -1,3 +1,10 @@
+#import dependencies 
+from splinter import Browser
+from bs4 import BeautifulSoup as bs
+import time 
+import pandas as pd
+import re
+
 def scrape_info():
 
     browser = Browser('chrome', executable_path='/usr/local/bin/chromedriver', headless=False)
