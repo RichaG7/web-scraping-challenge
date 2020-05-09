@@ -1,11 +1,6 @@
-def init_browser():
-    executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
-    return Browser("chrome", **executable_path, headless=False)
-
-
 def scrape_info():
-    
-    browser = init_browser()
+
+    browser = Browser('chrome', executable_path='/usr/local/bin/chromedriver', headless=False)
     
     #get latest tweet 
     handle = "marswxreport"
@@ -64,6 +59,9 @@ def scrape_info():
 
     facts_table = facts_table[0]
     facts_table.columns = ["Property", "Value"]
+    
+    mars_table = facts_table.to_html()
+
     facts_table = facts_table.set_index('Property')
     facts_dict = facts_table['Value'].to_dict()
 
@@ -154,6 +152,7 @@ def scrape_info():
         'news_title': news_title,
         'news_article': news_article,
         'tweet': tweet,
+        'mars_table': mars_table,
         'featured_image': f"https://www.jpl.nasa.gov{featured_image}",
         'cerberus_image': f"https://astrogeology.usgs.gov{cerberus_image}",
         'schiaparelli_image': f"https://astrogeology.usgs.gov{schiaparelli_image}",
@@ -161,9 +160,9 @@ def scrape_info():
         'vallesmarineris_image': f"https://astrogeology.usgs.gov{vallesmarineris_image}"
     }
     
-    results = {**results, **facts_dict}
+    mars_results = {**results, **facts_dict}
     
     #close the browser
     browser.quit()
     
-    return results
+    return mars_results
